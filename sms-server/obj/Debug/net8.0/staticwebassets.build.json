@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "5XwL2qHKPjuorwQ6Z7jKztMwn+u3DqEyu+K/3qj6YYg=",
+  "Source": "sms-server",
+  "BasePath": "_content/sms-server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

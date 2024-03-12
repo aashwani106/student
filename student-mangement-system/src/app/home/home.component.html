@@ -1,0 +1,147 @@
+<!-- hello there!!! -->
+<div class="header">
+  <h1>Student Management System</h1>
+  <p>A robust solution for managing student information</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Student</th>
+      <th>Subject</th>
+      <th>Marks</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allStudentData">
+      <td>{{ item.sno }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.subject }}</td>
+      <td>{{ item.marks }}</td>
+      <td>
+        <button class="action-button" (click)="openUpdate(item.sno)">
+          Update
+        </button>
+        <!-- Action button -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog id="myDialog">
+  <div class="container3">
+    <h2>Student Information</h2>
+    <form id="studentForm">
+      <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input
+          type="text"
+          id="studentName"
+          [(ngModel)]="selectedStd"
+          disabled
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="studentSubject">Student Subject:</label>
+        <input
+          type="text"
+          id="studentSubject"
+          [(ngModel)]="selectedSub"
+          disabled
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="studentMark">Student Mark:</label>
+        <input
+          type="number"
+          id="studentMark"
+          name="studentMark"
+          min="0"
+          max="100"
+          [(ngModel)]="updatedMark"
+          required
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="another">
+        <button
+          type="submit"
+          class="btn"
+          (click)="closeDialog()"
+          style="background-color: rgb(177, 74, 74)"
+        >
+          Close
+        </button>
+        <button type="submit" class="btn" (click)="update()">Submit</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<div class="backdrop" *ngIf="isDialogOpen"></div>
+
+<div class="bottom" style="text-align: right; padding: 7px 29px">
+  <button
+    type="submit"
+    class="btn"
+    (click)="addStd()"
+    style="background-color: rgb(177, 74, 74); display: inline"
+  >Add Students</button>
+</div>
+
+
+<dialog id="myDialog2">
+  <div class="container3">
+    <h2>Add student</h2>
+    <form id="addStudentForm">
+      <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input
+          type="text"
+          id="studentName"
+          [(ngModel)]="addStdd"
+         
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="studentSubject">Student Subject:</label>
+        <input
+          type="text"
+          id="studentSubject"
+          [(ngModel)]="addsub"
+     
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label for="studentMark">Student Mark:</label>
+        <input
+          type="number"
+          id="studentMark"
+          name="studentMark"
+          min="0"
+          max="100"
+          [(ngModel)]="updatedMark"
+          
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div> -->
+      <div class="another">
+        <button
+          type="submit"
+          class="btn"
+          (click)="closeDialog2()"
+          style="background-color: rgb(177, 74, 74)"
+        >
+          Close
+        </button>
+        <button type="submit" class="btn" (click)="add()">Submit</button>
+      </div>
+    </form>
+  </div>
+</dialog>
